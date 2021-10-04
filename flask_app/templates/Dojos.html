@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Doojos</title>
+</head>
+<body class = "bg-light">
+    <div class="d-flex justify-content-around">
+        <form action="/create/dojo" method="post" class="col-5 bg-secondary p-4 my-5 text-light" >
+            <h2 class="text-center text-warning">New Dojo</h2>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id= "name"class="form-control">
+            </div>
+            <input type="submit" value="Add Dojo" class="btn btn-success btn-outline-dark text-light">
+        </form>
+        <div class="col-5 bg-secondary text-light text-center my-5 p-4">
+            <h2 class="text-warning">All Dojos</h2>
+            {% for dojo in dojos %}
+            <p> 
+                <a href="/dojo/{{dojo.id}}" class="text-warning" style="text-decoration:underline" >{{dojo.name}}</a>
+            </p>
+            {% endfor %}
+        </div>
+    </div >
+    <a href="/ninjas" class="text-center text-seconndary mx-5" style="text-decoration:underline " >Add Ninja</a>
+</body>
+</html>
+
